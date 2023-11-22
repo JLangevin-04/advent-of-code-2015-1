@@ -1,4 +1,3 @@
-import solutions.Day1;
 
 public class Main {
 
@@ -9,8 +8,8 @@ public class Main {
      */
     public static void main(String[] args) {
 
-        int dayNum = 1;
-        Day1 day = new Day1();
+        int dayNum = 2;
+        solutions.Day2 day = new solutions.Day2();
 
         System.out.print("Day " + dayNum + ": " +
                         "\nPart one: " + day.partOne() + 

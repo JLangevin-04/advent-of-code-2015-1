@@ -44,4 +44,21 @@ public class Utils{
         }
         return text;
     }
+
+    public int[][] getStringAs3DArray(int day){
+
+        String input = getInputAsString(day);
+        
+        String[] lines = input.split("\n");
+        int[][] allDimensions = new int[lines.length][3];
+        
+        for (int i = 0; i < lines.length; i++) {
+            String[] dimensions = lines[i].split("x");
+            for (int j = 0; j < 3; j++) {
+                allDimensions[i][j] = Integer.parseInt(dimensions[j]);
+            }   
+        }
+
+        return allDimensions;
+    }
 }
