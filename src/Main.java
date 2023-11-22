@@ -1,4 +1,4 @@
-import mason.solutions.Day1;
+import solutions.Day1;
 
 public class Main {
 

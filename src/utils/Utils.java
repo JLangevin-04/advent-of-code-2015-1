@@ -1,4 +1,4 @@
-package mason.utils;
+package utils;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -6,7 +6,7 @@ import java.nio.file.Paths;
 
 public class Utils{
 
-    private String inputPath = "src/mason/inputs/day";
+    private String inputPath = "src/inputs/day";
 
     public String getInputAsString(int day){
         String text = "";

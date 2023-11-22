@@ -1,6 +1,6 @@
-package mason.solutions;
+package solutions;
 
-import mason.utils.Utils;
+import utils.Utils;
 
 public class Day1 {
 
