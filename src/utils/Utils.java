@@ -4,13 +4,38 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+/**
+ * This class is intended to house all methods that may be reused multiple times
+ * throughout AdventOfCode 2015, if you feel the need to reuse a method in any
+ * of your attempts, consider relocating that method into this common class
+ * so that it may be reused easier
+ */
 public class Utils{
 
-    private String inputPath = "src/inputs/day";
+    public String text;
+    private String inputPath;
 
+    /**
+     * Default constructor, this gets called every time we use this class and sets
+     * up the basic variables that will be used everytime a new object of this
+     * class is made
+     */
+    public Utils(){
+        text = "";
+        inputPath = "src/inputs/day";
+    }
+
+    /**
+     * This method accepts a day (integer) and returns the input file as one string
+     * 
+     * @param   day an integer representation of which date in December we are using
+     * @return      the file contents as a string
+     */
     public String getInputAsString(int day){
-        String text = "";
+        //This needs to be wrapped in a try/catch as reading from a file can fail, resulting in an exception
         try {
+            //The following lines could also be simplified as follows, left as is just for understanding what is happening here
+            //text = new String(Files.readAllBytes(Paths.get(inputPath + Integer.toString(day) + ".txt")))
             String pathString = inputPath + Integer.toString(day) + ".txt";
             Path path = Paths.get(pathString);
             text = new String(Files.readAllBytes(path));
