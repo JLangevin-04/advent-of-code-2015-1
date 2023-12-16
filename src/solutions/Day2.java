@@ -1,12 +1,13 @@
 package solutions;
 
+import java.util.Arrays;
+
 import utils.Utils;
 
 public class Day2 {
 
     public static int day;
     private int[][] presents;
-    private String input;
     private static Utils utils = new Utils();
 
     /**
@@ -16,7 +17,6 @@ public class Day2 {
      */
     public Day2() {
         day = 2;
-        input = utils.getInputAsString(day);
         presents = utils.getStringAs3DArray(day);
     }
 
@@ -34,12 +34,19 @@ public class Day2 {
     }
 
     /**
-     * 
+     * Calculate the amount of ribbon needed to wrap the presents
      * 
      * @return
      */
     public int partTwo() {
-        return -1;
+        int totalBow = 0;
+        int totalRibbon = 0;
+        
+        for (int i = 0; i < presents.length; i++) {
+            totalBow += presents[i][0] + presents[i][1] + presents[i][2];
+            totalRibbon += getSmallestSidePerimeter(presents[i][0], presents[i][1],  presents[i][2]);
+        }
+        return totalRibbon + totalBow;
     }
 
     public int getSurfaceAreaAndSmallestSideExtra(int l, int w, int h) {
@@ -57,5 +64,11 @@ public class Day2 {
             smallestSide = side3 / 2;
         }
         return side1 + side2 + side3 + smallestSide;
+    }
+
+    private int getSmallestSidePerimeter(int l, int w, int h){
+        int[] dimensions = new int[]{l, w, h};
+        Arrays.sort(dimensions);   
+        return dimensions[0] + dimensions[1];
     }
 }
